@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # Load the saved model
     #model_id = 5403
     #total_steps = int(48e6)
-    model1 = PPO.load(f"model.zip")
+    model1 = PPO.load("model.zip")
     model = A2C.load("rl_model_1_7000000_steps.zip")
     
     # Create a kaggle-remote opponent agent
