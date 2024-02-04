@@ -1,5 +1,5 @@
 from stable_baselines3 import A2C  # pip install stable-baselines3
-
+from stable_baselines3 import PPO
 from luxai2021.env.agent import AgentFromStdInOut
 from luxai2021.env.lux_env import LuxEnvironment
 from luxai2021.game.constants import LuxMatchConfigs_Default
@@ -19,11 +19,11 @@ if __name__ == "__main__":
     # Load the saved model
     #model_id = 5403
     #total_steps = int(48e6)
-    #model = PPO.load(f"models/rl_model_{model_id}_{total_steps}_steps.zip")
+    model1 = PPO.load(f"model.zip")
     model = A2C.load("rl_model_1_7000000_steps.zip")
     
     # Create a kaggle-remote opponent agent
-    opponent = AgentFromStdInOut()
+    opponent = AgentPolicy(mode="inference", model=model1)
 
     # Create a RL agent in inference mode
     player = AgentPolicy(mode="inference", model=model)
