@@ -191,30 +191,30 @@ class LuxEnvironment(gym.Env):
         print(self.current_step)
         print(self.game.map.get_map_string())
 
-    def run_no_learn(self):
-        """
-        Steps until the environment is "done".
-        Both agents have to be in inference mode
-        """
+    # def run_no_learn(self):
+    #     """
+    #     Steps until the environment is "done".
+    #     Both agents have to be in inference mode
+    #     """
 
-        for agent in self.match_controller.agents:
-            assert agent.get_agent_type() == Constants.AGENT_TYPE.AGENT, "Both agents must be in inference mode"
+    #     for agent in self.match_controller.agents:
+    #         assert agent.get_agent_type() == Constants.AGENT_TYPE.AGENT, "Both agents must be in inference mode"
 
-        self.current_step = 0
-        self.last_observation_object = None
+    #     self.current_step = 0
+    #     self.last_observation_object = None
 
-        # Reset game + map
-        self.match_controller.reset(randomize_team_order=False)
-        # Running
-        self.match_generator = self.match_controller.run_to_next_observation()
-        try:
-            next(self.match_generator)
-        except StopIteration:
-            # The game episode is done.
-            is_game_error = False
-            print('Episode run finished successfully!')
-        except GameStepFailedException:
-            # Game step failed.
-            is_game_error = True
+    #     # Reset game + map
+    #     self.match_controller.reset(randomize_team_order=False)
+    #     # Running
+    #     self.match_generator = self.match_controller.run_to_next_observation()
+    #     try:
+    #         next(self.match_generator)
+    #     except StopIteration:
+    #         # The game episode is done.
+    #         is_game_error = False
+    #         print('Episode run finished successfully!')
+    #     except GameStepFailedException:
+    #         # Game step failed.
+    #         is_game_error = True
 
-        return is_game_error
+    #     return is_game_error
