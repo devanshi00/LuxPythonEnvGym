@@ -4,7 +4,7 @@ from luxai2021.env.agent import AgentFromStdInOut
 from luxai2021.env.lux_env import LuxEnvironment
 from luxai2021.game.constants import LuxMatchConfigs_Default
 from agent_policy import AgentPolicy
-from luxai2021.env.agent import Agent
+
 
 if __name__ == "__main__":
     """
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     model = A2C.load("rl_model_1_9000000_steps.zip")
     
     # Create a kaggle-remote opponent agent
-    opponent = Agent()
+    opponent = AgentFromStdInOut()
 
     # Create a RL agent in inference mode
     player = AgentPolicy(mode="inference", model=model)
