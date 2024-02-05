@@ -4,6 +4,7 @@ from luxai2021.env.agent import AgentFromStdInOut
 from luxai2021.env.lux_env import LuxEnvironment
 from luxai2021.game.constants import LuxMatchConfigs_Default
 from agent_policy import AgentPolicy
+from luxai2021.env.agent import Agent
 
 if __name__ == "__main__":
     """
