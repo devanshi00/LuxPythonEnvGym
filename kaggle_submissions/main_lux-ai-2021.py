@@ -19,11 +19,11 @@ if __name__ == "__main__":
     # Load the saved model
     #model_id = 5403
     #total_steps = int(48e6)
-    model1 = PPO.load("model.zip")
-    model = A2C.load("rl_model_1_7000000_steps.zip")
+
+    model = A2C.load("rl_model_1_9000000_steps.zip")
     
     # Create a kaggle-remote opponent agent
-    opponent = AgentPolicy(mode="inference", model=model1)
+    opponent = Agent()
 
     # Create a RL agent in inference mode
     player = AgentPolicy(mode="inference", model=model)
