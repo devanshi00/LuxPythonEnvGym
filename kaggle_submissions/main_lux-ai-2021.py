@@ -21,7 +21,7 @@ if __name__ == "__main__":
     #model_id = 5403
     #total_steps = int(48e6)
 
-    model = A2C.load("rl_model_1_9000000_steps.zip")
+    model = A2C.load("train_model_against_ppo.zip")
     
     # Create a kaggle-remote opponent agent
     opponent = AgentFromStdInOut()
